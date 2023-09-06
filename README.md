@@ -1,49 +1,54 @@
 # Network-Server-Scanner
-A prototype software that scans a server, locates a specific file (flag.txt) and outputs the contents of the file on the terminal or command line.
-The only caveat is that it is design to be used on a local device, therefore only the IP address 127.0.0.1 can be used.
 
-# Instruction
-1. Setting up a local server.
-2. Running the Scanner.
+A prototype software that scans a server, locates a specific file (`flag.txt`), and displays the contents of the file in the terminal or command line.
 
-# Setting up a local server.
-1. On your desktop create file called "testserver". (You can put the file inside any directory and the scanner should still find the file)
-2. Inside the folder create a file called "flag" in notepad or any text editor. (Be sure to save it as a text file so the final file name is flag.txt)
-3. Enter any characters inside flag.txt and save.
-4. Open a command line or terminal, navigate inside testserver.
-5. dir or ls command should display "flag.txt"
-6. Enter the command: python -m http.server 80 (This will create a test server on port 80)
-7. Keep this window open. (It simulates a "remote" server" even though its actually a local server)
-![server](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/18fc752c-c6bd-4d42-a8c1-69cac47af420)
+> **Note**: This software is designed to be used on a local device; hence, only the IP address `127.0.0.1` can be utilized.
 
+## Table of Contents
+- [Instruction](#instruction)
+  - [Setting up a Local Server](#setting-up-a-local-server)
+  - [Running the Scanner (Windows)](#running-the-scanner-windows)
+- [Modifying the Tool for Different Operating Systems](#modifying-the-tool-for-different-operating-systems)
 
+## Instruction
+Follow the steps below:
 
-# Running the Scanner (Windows)
-The current build is using a windows.dll. The following are instructions on how to run it.
-1. Asuming you are running this on windows, open the "Network-Server-Scanner" folder, navigate inside "Project" folder,
-then "bin", "release", and the NetworkScanner executable is located here.
-2. To run this program you need to open a command line or terminal, navigate to where the executable is 
-and enter the command: NetworkScanner.
-3. Enter the IP address. If the server and the file have been configured correctly, it should make a successful connection and output the contents of the file.
+### Setting up a Local Server
+1. Create a file on your desktop named "testserver". (You can place this file in any directory, and the scanner should still locate the file.)
+2. Within this folder, open a text editor (like Notepad) and create a file named "flag". Save it as `flag.txt`.
+3. Add any content to `flag.txt` and save.
+4. Open a terminal or command prompt and navigate to the `testserver` directory.
+5. Use the `dir` (or `ls` on Linux/Mac) command. You should see the `flag.txt` file listed.
+6. Start a local server on port 80 with the command: `python -m http.server 80`
+7. Leave this terminal window open. This step simulates a "remote" server (though it's actually a local server).
+   
+![Local Server Setup](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/18fc752c-c6bd-4d42-a8c1-69cac47af420)
 
+### Running the Scanner (Windows)
+The current build utilizes a `windows.dll`. Follow these steps to run the scanner:
+1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `release`. The `NetworkScanner` executable is located here.
+2. To execute this program, open a terminal or command prompt, navigate to the location of the executable, and enter the command: `NetworkScanner`.
+3. Input the IP address. If the server and file are set up correctly, you'll establish a successful connection, and the content of the file will be displayed.
 
-![scanner](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/65892a27-efbe-4fc8-a219-51a4d883e1d1)
+![Scanner in Action](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/65892a27-efbe-4fc8-a219-51a4d883e1d1)
 
-# Modifying the tool for difference Operating systems.
-1. If you are using Linux or MacOS then you need to create a version of the software to use the .dll that matches corresponding OS.
-2. Download .NET 6 or .NET 7 and install.
-3. If you don't have it installed, go download Visual Studio 2022.
-4. Open Solution Explorer. If its not open then click 'View' > 'Solution Explorer'.
-5. In the Solution Explorer, right-click on the 'Dependencies' node of your project (not the solution).
-6. Click 'Add Project Reference'. This might be a bit misleading because youi're not adding a project but a DLL. Bear with the process.
-7. In the opened dialog, click on the 'Browse' button at the bottom.
-8. Navigate to the 'project' folder. Inside there a file called Assessment_DLL_Files.
-9. Open either net6.0 or net7.0 depend on which .NET version you are using.
-10. Select the folder that matches your OS and architecture.
-11. Select the Assessment.DLL file.
-12. Ensure the checkbox next to 'Assessment.dll' file is checked.
-13. Click 'OK' to close dialog. After these steps, 'Assessment.dll' should be referenced in your project.
-14. In Visual Studio, on the top menu, select 'Build' > 'Build Network Scanner'
+## Modifying the Tool for Different Operating Systems
 
-Follow the 'Running the Scanner' to run the program. To run on linux or MacOS enter the command: ./NetworkScanner
+If you're on Linux or MacOS, follow these steps to create a version of the software compatible with your OS:
 
+1. Ensure you've created a version of the software that references the correct `.dll` for your OS.
+2. Download and install either .NET 6 or .NET 7.
+3. If not already installed, download and set up Visual Studio 2022.
+4. Open the Solution Explorer. If it's not visible, click `View` > `Solution Explorer`.
+5. Right-click the 'Dependencies' node of your project (not the solution) in the Solution Explorer.
+6. Click 'Add Project Reference'. This might seem misleading since you're not adding a project but a DLL. Bear with the process.
+7. Click the 'Browse' button at the bottom of the dialog that appears.
+8. Navigate to the `project` folder and find the file named `Assessment_DLL_Files`.
+9. Access either the `net6.0` or `net7.0` folder, depending on your .NET version.
+10. Choose the folder aligning with your OS and architecture.
+11. Select the `Assessment.DLL` file.
+12. Make sure the checkbox next to the `Assessment.dll` file is selected.
+13. Click 'OK' to close the dialog. Now, the `Assessment.dll` file should be referenced in your project.
+14. In Visual Studio, navigate to the top menu and select `Build` > `Build Network Scanner`.
+
+To execute the scanner on Linux or MacOS, use the command: `./NetworkScanner`
