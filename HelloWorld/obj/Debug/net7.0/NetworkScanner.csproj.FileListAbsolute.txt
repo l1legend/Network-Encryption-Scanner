@@ -1,0 +1,17 @@
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\bin\Debug\net7.0\NetworkScanner.exe
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\bin\Debug\net7.0\NetworkScanner.deps.json
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\bin\Debug\net7.0\NetworkScanner.runtimeconfig.json
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\bin\Debug\net7.0\NetworkScanner.dll
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\bin\Debug\net7.0\NetworkScanner.pdb
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\bin\Debug\net7.0\Assessment.dll
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.csproj.AssemblyReference.cache
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.AssemblyInfoInputs.cache
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.AssemblyInfo.cs
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.csproj.CoreCompileInputs.cache
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.csproj.CopyComplete
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.dll
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\refint\NetworkScanner.dll
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.pdb
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\NetworkScanner.genruntimeconfig.cache
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\ref\NetworkScanner.dll

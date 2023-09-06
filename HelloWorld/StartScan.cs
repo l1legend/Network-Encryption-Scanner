@@ -64,8 +64,27 @@ namespace NetworkSecurityScanner
                 Console.WriteLine($"Unable to connect to target IP: {targetIpAddress}. Exiting...");
                 return;
             }
-            
-            Console.WriteLine("Starting scan for flag.txt...");
+
+            // Checking HTTP connectivity
+            HttpResponseMessage rootResponse;
+            try
+            {
+                rootResponse = await client.GetAsync($"http://{targetIpAddress}/");
+                if (!rootResponse.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Unable to get a positive HTTP response from target IP: {targetIpAddress}. Exiting...");
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error making an HTTP request to {targetIpAddress}. Message: {e.Message}");
+                return;
+            }
+
+            Console.WriteLine($"Successfully connected to {targetIpAddress}. Proceeding with scan...");
+
+            await CheckForFlagFile("", targetIpAddress); // directly call the check for the root directory
 
             List<string> wordList = new Assessment.Words().GetWordList();
 

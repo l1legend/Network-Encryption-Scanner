@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\CSharpHackTheBoxCourse\\HelloWorld\\HelloWorld.csproj",
-      "projectName": "HelloWorld",
-      "projectPath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\CSharpHackTheBoxCourse\\HelloWorld\\HelloWorld.csproj",
+      "projectUniqueName": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\CSharpHackTheBoxCourse\\HelloWorld\\NetworkScanner.csproj",
+      "projectName": "NetworkScanner",
+      "projectPath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\CSharpHackTheBoxCourse\\HelloWorld\\NetworkScanner.csproj",
       "packagesPath": "C:\\Users\\mintw\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\CSharpHackTheBoxCourse\\HelloWorld\\obj\\",
       "projectStyle": "PackageReference",
