@@ -21,7 +21,9 @@ The current build is using a windows.dll. The following are instructions on how 
 then "bin", "release", and the NetworkScanner executable is located here.
 2. To run this program you need to open a command line or terminal, navigate to where the executable is 
 and enter the command: NetworkScanner.
-3. Enter the IP address. If the server and the file have been configured correctly, it should make a successful connect and output the contents of the file.  
+3. Enter the IP address. If the server and the file have been configured correctly, it should make a successful connection and output the contents of the file.
+
+
 ![scanner](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/65892a27-efbe-4fc8-a219-51a4d883e1d1)
 
 
