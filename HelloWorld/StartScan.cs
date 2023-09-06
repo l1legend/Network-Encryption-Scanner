@@ -27,7 +27,7 @@ namespace NetworkSecurityScanner
     {
         static readonly HttpClient client = new HttpClient();
 
-        static async Task Main(string[] args)
+        public static async Task StartScan()
         {
             Console.WriteLine("Enter target IP address:");
             string targetIpAddress = Console.ReadLine(); // Read IP from user input
