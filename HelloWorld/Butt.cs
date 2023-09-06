@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-//using Assessment; // Assuming Assessment.dll is referenced
+using Assessment; //Assessment.dll
 
 namespace NetworkSecurityScanner
 {
     class Program
     {
         static readonly HttpClient client = new HttpClient();
+        static readonly string targetIpAddress = "192.168.1.10"; // Hardcoded IP address
 
         static void Main(string[] args)
         {
@@ -26,7 +27,7 @@ namespace NetworkSecurityScanner
 
         static async void CheckForFlagFile(string path)
         {
-            string targetUrl = $"{path}/flag.txt";
+            string targetUrl = $"http://{targetIpAddress}{path}/flag.txt"; // Use the hardcoded IP
 
             try
             {
