@@ -1,4 +1,4 @@
-# Network-Security-Scanner
+# Network Security Scanner
 
 A prototype software that scans a server, locates a specific file (`password.txt`), and displays the contents of the file in the terminal or command line.
 
