@@ -32,7 +32,7 @@ The current build utilizes a `windows.dll`. Follow these steps to run the scanne
 
 ![Scanner in Action](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/65892a27-efbe-4fc8-a219-51a4d883e1d1)
 
-## Modifying the Tool for Different Operating Systems
+## Modifying the Software for Different Operating Systems
 
 If you're on Linux or MacOS, follow these steps to create a version of the software compatible with your OS:
 
