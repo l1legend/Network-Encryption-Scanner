@@ -1,6 +1,6 @@
 # Network-Security-Scanner
 
-A prototype software that scans a server, locates a specific file (`flag.txt`), and displays the contents of the file in the terminal or command line.
+A prototype software that scans a server, locates a specific file (`password.txt`), and displays the contents of the file in the terminal or command line.
 
 > **Note**: This software is designed to be used on a local device; hence, only the IP address `127.0.0.1` can be utilized.
 
@@ -18,7 +18,7 @@ Follow the steps below:
 2. Within this folder, open a text editor (like Notepad) and create a file named "flag". Save it as `password.txt`.
 3. Add any text to `password.txt` and save.
 4. Open a terminal or command prompt and navigate to the `testserver` directory.
-5. Use the `dir` (or `ls` on Linux/Mac) command. You should see the `flag.txt` file listed.
+5. Use the `dir` (or `ls` on Linux/Mac) command. You should see the `password.text` file listed.
 6. Start a local server on port 80 with the command: `python -m http.server 80`
 7. Leave this terminal window open. This step simulates a "remote" server (though it's actually a local server).
    
