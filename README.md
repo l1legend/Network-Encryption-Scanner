@@ -7,14 +7,15 @@ The only caveat is that it is design to be used on a local device, therefore onl
 2. Running the Scanner.
 
 # Setting up a local server.
-1. On your desktop create file called "testserver".
+1. On your desktop create file called "testserver". (You can put the file inside any directory and the scanner should still find the file)
 2. Inside the folder create a file called "flag" in notepad or any text editor. (Be sure to save it as a text file so the final file name is flag.txt)
 3. Enter any characters inside flag.txt and save.
 4. Open a command line or terminal, navigate inside testserver.
 5. dir or ls command should display "flag.txt"
 6. Enter the command: python -m http.server 80 (This will create a test server on port 80)
 7. Keep this window open. (It simulates a "remote" server" even though its actually a local server)
-![server](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/678224a2-5d15-4cac-b672-c767277ab272)
+![server](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/18fc752c-c6bd-4d42-a8c1-69cac47af420)
+
 
 
 # Running the Scanner (Windows)
