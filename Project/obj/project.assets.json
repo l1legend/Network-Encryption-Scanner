@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Server-Scanner\\Project\\NetworkScanner.csproj",
+      "projectUniqueName": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Security-Scanner\\Project\\NetworkScanner.csproj",
       "projectName": "NetworkScanner",
-      "projectPath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Server-Scanner\\Project\\NetworkScanner.csproj",
+      "projectPath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Security-Scanner\\Project\\NetworkScanner.csproj",
       "packagesPath": "C:\\Users\\mintw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Server-Scanner\\Project\\obj\\",
+      "outputPath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Security-Scanner\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mintw\\AppData\\Roaming\\NuGet\\NuGet.Config",

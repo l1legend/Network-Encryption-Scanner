@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jys0exMWiIPeEbs7tXIUlxj3+DStqWJ3h6Bihtu3gA+OrtWiZIU22CaAIBjyO1fSGkkSIrfnV6IwjDp2jXy4uw==",
+  "dgSpecHash": "hVTpHczU0vH2/4rJUUB2oTrImLXQ0yvUgtoK/6/cCSfE8/pExy3c3nDRNhqwxCfmtk1cDThAynBkKqsSr7mHFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Server-Scanner\\Project\\NetworkScanner.csproj",
+  "projectFilePath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Security-Scanner\\Project\\NetworkScanner.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

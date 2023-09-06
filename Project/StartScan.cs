@@ -95,7 +95,7 @@ namespace NetworkSecurityScanner
 
         static async Task CheckForFlagFile(string path, string ipAddress)
         {
-            string targetUrl = $"http://{ipAddress}{path}/flag.txt";
+            string targetUrl = $"http://{ipAddress}{path}/password.txt";
 
             try
             {
@@ -107,8 +107,8 @@ namespace NetworkSecurityScanner
                     string fileContent = await response.Content.ReadAsStringAsync();
                     if (!string.IsNullOrEmpty(fileContent))
                     {
-                        Console.WriteLine($"flag.txt found at: {targetUrl}");
-                        Console.WriteLine($"Content of flag.txt:\n{fileContent}");
+                        Console.WriteLine($"password.txt found at: {targetUrl}");
+                        Console.WriteLine($"Content of password.txt:\n{fileContent}");
                     }
                 }
             }
