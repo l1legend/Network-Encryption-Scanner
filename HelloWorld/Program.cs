@@ -1,10 +1,16 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World2!");
+﻿using System;
 
-class Program
+namespace MyNamespace
 {
-    public static void Main()
+    class Program
     {
-        Console.WriteLine("Hello, World!");
+        static void Main()
+        {
+            // Using a fully qualified name
+            System.Console.WriteLine("Hello, World!");
+
+            // Using the imported namespace
+            Console.WriteLine("Hello, World!");
+        }
     }
 }
