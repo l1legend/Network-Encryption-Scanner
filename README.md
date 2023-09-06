@@ -51,4 +51,4 @@ If you're on Linux or MacOS, follow these steps to create a version of the softw
 13. Click 'OK' to close the dialog. Now, the `Assessment.dll` file should be referenced in your project.
 14. In Visual Studio, navigate to the top menu and select `Build` > `Build Network Scanner`.
 
-To execute the scanner on Linux or MacOS, use the command: `./NetworkScanner`
+To run the scanner on Linux or MacOS, use the command: `./NetworkScanner`
