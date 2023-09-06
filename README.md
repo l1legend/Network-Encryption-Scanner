@@ -14,9 +14,9 @@ A prototype software that scans a server, locates a specific file (`flag.txt`), 
 Follow the steps below:
 
 ### Setting up a Local Server
-1. Create a file on your desktop named "testserver". (You can place this file in any directory, and the scanner should still locate the file.)
-2. Within this folder, open a text editor (like Notepad) and create a file named "flag". Save it as `flag.txt`.
-3. Add any content to `flag.txt` and save.
+1. Create a file on your desktop named "TestServer". (You can place this file in any directory, and the scanner should still locate the file.)
+2. Within this folder, open a text editor (like Notepad) and create a file named "flag". Save it as `password.txt`.
+3. Add any text to `password.txt` and save.
 4. Open a terminal or command prompt and navigate to the `testserver` directory.
 5. Use the `dir` (or `ls` on Linux/Mac) command. You should see the `flag.txt` file listed.
 6. Start a local server on port 80 with the command: `python -m http.server 80`
