@@ -2,7 +2,7 @@
 
 A prototype software that scans a server, locates a specific file (`flag.txt`), and displays the contents of the file in the terminal or command line.
 
-> **Note**: This software is designed to be used on a local device; hence, only the IP address `127.0.0.1` can be utilized.
+> **Note**: This software is designed to be used on a local device; hence, only the IP address `127.0.0.1` can be utilizedd.
 
 ## Table of Contents
 - [Instruction](#instruction)
