@@ -5,7 +5,6 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using Assessment;
 
-// Assuming this is inside Assessment.dll
 namespace Assessment
 {
     public interface IWordsProvider
