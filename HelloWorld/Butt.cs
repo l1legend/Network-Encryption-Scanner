@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Assessment;
 
+// Assuming this is inside Assessment.dll
 namespace Assessment
 {
     public interface IWordsProvider
     {
         List<string> GetWordList();
     }
-}
 
+    public class Words : IWordsProvider
+    {
+        public List<string> GetWordList()
+        {            
+            return new List<string>();
+        }
+    }
+}
 
 namespace NetworkSecurityScanner
 {
@@ -26,7 +34,7 @@ namespace NetworkSecurityScanner
 
             Console.WriteLine("Starting scan for flag.txt...");
 
-            List<string> wordList = Assessment.Words.GetWordList();
+            List<string> wordList = new Assessment.Words().GetWordList();
 
             var tasks = wordList.Select(path => CheckForFlagFile(path, targetIpAddress)).ToArray();
             await Task.WhenAll(tasks); // Wait for all checks to complete

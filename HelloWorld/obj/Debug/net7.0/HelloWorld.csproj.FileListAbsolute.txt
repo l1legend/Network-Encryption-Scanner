@@ -12,3 +12,6 @@ C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\D
 C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\HelloWorld.pdb
 C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\HelloWorld.genruntimeconfig.cache
 C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\ref\HelloWorld.dll
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\bin\Debug\net7.0\Assessment.dll
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\HelloWorld.csproj.AssemblyReference.cache
+C:\Users\mintw\OneDrive\Documents\GitHub\CSharpHackTheBoxCourse\HelloWorld\obj\Debug\net7.0\HelloWorld.csproj.CopyComplete
