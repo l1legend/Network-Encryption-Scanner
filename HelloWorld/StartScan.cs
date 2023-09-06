@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using Assessment;
 
@@ -26,12 +27,44 @@ namespace NetworkSecurityScanner
     class Program
     {
         static readonly HttpClient client = new HttpClient();
+        static bool IsTargetReachable(string ipAddress, int port = 80, int timeout = 5000)
+        {
+            using (var client = new TcpClient())
+            {
+                try
+                {
+                    var task = client.ConnectAsync(ipAddress, port);
+                    var result = Task.WhenAny(task, Task.Delay(timeout)).Result;
+
+                    if (result == task)
+                    {
+                        // Successfully connected
+                        return true;
+                    }
+                    else
+                    {
+                        // Timed out
+                        return false;
+                    }
+                }
+                catch
+                {
+                    // Exception occurred (like refused connection)
+                    return false;
+                }
+            }
+        }
 
         public static async Task StartScan()
         {
             Console.WriteLine("Enter target IP address:");
             string targetIpAddress = Console.ReadLine(); // Read IP from user input
-
+            if (!IsTargetReachable(targetIpAddress))
+            {
+                Console.WriteLine($"Unable to connect to target IP: {targetIpAddress}. Exiting...");
+                return;
+            }
+            
             Console.WriteLine("Starting scan for flag.txt...");
 
             List<string> wordList = new Assessment.Words().GetWordList();
@@ -50,9 +83,15 @@ namespace NetworkSecurityScanner
             {
                 HttpResponseMessage response = await client.GetAsync(targetUrl);
 
-                if (response.IsSuccessStatusCode && await response.Content.ReadAsStringAsync() != "")
+                // If the file is successfully fetched
+                if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"flag.txt found at: {targetUrl}");
+                    string fileContent = await response.Content.ReadAsStringAsync();
+                    if (!string.IsNullOrEmpty(fileContent))
+                    {
+                        Console.WriteLine($"flag.txt found at: {targetUrl}");
+                        Console.WriteLine($"Content of flag.txt:\n{fileContent}");
+                    }
                 }
             }
             catch (Exception e) // Catch all exceptions
