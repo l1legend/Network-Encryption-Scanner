@@ -24,9 +24,11 @@ Follow the steps below:
    
 ### Running the Scanner (Windows)
 The current build utilizes a `windows.dll`. Follow these steps to run the scanner:
-1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `debug`. The `NetworkScanner` executable is located here.
-2. To execute this program, open a terminal or command prompt, navigate to the location of the executable, and enter the command: `NetworkScanner`.
-3. Input the IP address. If the server and file are set up correctly, you'll establish a successful connection, and the content of the file will be displayed.
+1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `debug`. The `NetworkScanner.exe` executable is located here.
+2. To run the program, doubleclick `NetworkScanner.exe`
+3. Alternatively you can open a terminal or command prompt, navigate to the location of the executable, and enter the command: `NetworkScanner`.
+4. Input the IP address. If the server and file are set up correctly, you'll establish a successful connection.
+5. Input the name of the file. Assuming the file is located in the same directory where you setup your test server, the content of the file will be displayed.
 
 ## Modifying the Software for Different Operating Systems
 
