@@ -1,6 +1,6 @@
 # Network Security Scanner
 
-A prototype software that scans a server, locates a specific file (`password.txt`), and displays the contents of the file in the terminal or command line.
+A prototype software that scans an IP address, locates a specific file (for example: `password.txt`), and displays the contents of the file in the terminal or command line.
 
 > **Note**: This software is designed to be used on a local device; hence, only the IP address `127.0.0.1` can be utilized.
 
@@ -13,7 +13,7 @@ A prototype software that scans a server, locates a specific file (`password.txt
 ## Instruction
 Follow the steps below:
 
-### Setting up a Local Server
+### Setting up a Local Test Server
 1. Create a file on your desktop named "TestServer". (You can place this file in any directory, and the scanner should still locate the file.)
 2. Within this folder, open a text editor (like Notepad) and create a file named "flag". Save it as `password.txt`.
 3. Add any text to `password.txt` and save.
@@ -24,7 +24,7 @@ Follow the steps below:
    
 ### Running the Scanner (Windows)
 The current build utilizes a `windows.dll`. Follow these steps to run the scanner:
-1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `release`. The `NetworkScanner` executable is located here.
+1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `debug`. The `NetworkScanner` executable is located here.
 2. To execute this program, open a terminal or command prompt, navigate to the location of the executable, and enter the command: `NetworkScanner`.
 3. Input the IP address. If the server and file are set up correctly, you'll establish a successful connection, and the content of the file will be displayed.
 
