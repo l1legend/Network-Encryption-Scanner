@@ -59,11 +59,19 @@ namespace NetworkSecurityScanner
 
             Console.WriteLine($"Successfully connected to {targetIpAddress}. Proceeding with scan...");
 
-            CheckLocalDirectories("password.txt");
-            await CheckForFile("", targetIpAddress);
+            Console.WriteLine("Enter the name of the file (including its .exten to scan for:");
+            string filename = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(filename) || !filename.Contains("."))
+            {
+                Console.WriteLine("You didn't enter a valid filename or its extension. (For example enter password.txt instead of password");
+            }
+
+            CheckLocalDirectories(filename);
+            await CheckForFile("", targetIpAddress, filename);
 
             var wordList = new Words().GetWordList();
-            var tasks = wordList.Select(path => CheckForFile(path, targetIpAddress)).ToArray();
+            var tasks = wordList.Select(path => CheckForFile(path, targetIpAddress, filename)).ToArray();
             await Task.WhenAll(tasks);
 
             Console.WriteLine("Scan completed.");
@@ -71,7 +79,7 @@ namespace NetworkSecurityScanner
 
         private static void CheckLocalDirectories(string filename)
         {
-            string desktopDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string desktopDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             try
             {
                 SearchAndPrintFiles(desktopDirectory, filename);
@@ -106,9 +114,9 @@ namespace NetworkSecurityScanner
             }
         }
 
-        private static async Task CheckForFile(string path, string ipAddress)
+        private static async Task CheckForFile(string path, string ipAddress, string filename)
         {
-            string targetUrl = $"http://{ipAddress}{path}/password.txt";
+            string targetUrl = $"http://{ipAddress}{path}/{filename}";
             try
             {
                 HttpResponseMessage response = await client.GetAsync(targetUrl);
