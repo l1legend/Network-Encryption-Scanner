@@ -1,31 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Sockets;
-using System.Threading.Tasks;
+﻿using System.Net.Sockets;
 using Assessment;
 
-namespace Assessment
-{
-    public interface IWordsProvider
-    {
-        List<string> GetWordList();
-    }
 
-    public class Words : IWordsProvider
-    {
-        public List<string> GetWordList()
-        {            
-            return new List<string>();
-        }
-    }
-}
-
+// The NetworkSecurityScanner namespace contains logic 
+// to scan a network to identify and read specific files.
 namespace NetworkSecurityScanner
 {
     class Program
     {
+        // HttpClient instance to make HTTP requests.
         static readonly HttpClient client = new HttpClient();
+
+        // Checks if a specific IP address and port is reachable within a given timeout.
         static bool IsTargetReachable(string ipAddress, int port = 80, int timeout = 5000)
         {
             using (var client = new TcpClient())
@@ -37,34 +23,33 @@ namespace NetworkSecurityScanner
 
                     if (result == task)
                     {
-                        // Successfully connected
                         return true;
                     }
                     else
                     {
-                        // Timed out
                         return false;
                     }
                 }
                 catch
                 {
-                    // Exception occurred (like refused connection)
                     return false;
                 }
             }
         }
 
+        // Starts the scanning process.
         public static async Task StartScan()
         {
             Console.WriteLine("Enter target IP address:");
-            string targetIpAddress = Console.ReadLine(); // Read IP from user input
+            string targetIpAddress = Console.ReadLine();
+
             if (!IsTargetReachable(targetIpAddress))
             {
                 Console.WriteLine($"Unable to connect to target IP: {targetIpAddress}. Exiting...");
                 return;
             }
 
-            // Checking HTTP connectivity
+            // Try making an HTTP request to check connectivity.
             HttpResponseMessage rootResponse;
             try
             {
@@ -83,16 +68,17 @@ namespace NetworkSecurityScanner
 
             Console.WriteLine($"Successfully connected to {targetIpAddress}. Proceeding with scan...");
 
-            await CheckForFlagFile("", targetIpAddress); // directly call the check for the root directory
+            await CheckForFlagFile("", targetIpAddress);
 
-            List<string> wordList = new Assessment.Words().GetWordList();
+            List<string> wordList = new Words().GetWordList(); //From Assessment Namespace
 
             var tasks = wordList.Select(path => CheckForFlagFile(path, targetIpAddress)).ToArray();
-            await Task.WhenAll(tasks); // Wait for all checks to complete
+            await Task.WhenAll(tasks); // Wait for all checks to complete.
 
             Console.WriteLine("Scan completed.");
         }
 
+        // Check if a specific file (password.txt) exists at a given path for a specific IP address.
         static async Task CheckForFlagFile(string path, string ipAddress)
         {
             string targetUrl = $"http://{ipAddress}{path}/password.txt";
@@ -101,7 +87,6 @@ namespace NetworkSecurityScanner
             {
                 HttpResponseMessage response = await client.GetAsync(targetUrl);
 
-                // If the file is successfully fetched
                 if (response.IsSuccessStatusCode)
                 {
                     string fileContent = await response.Content.ReadAsStringAsync();
@@ -112,7 +97,7 @@ namespace NetworkSecurityScanner
                     }
                 }
             }
-            catch (Exception e) // Catch all exceptions
+            catch (Exception e)
             {
                 Console.WriteLine($"Error fetching {targetUrl}. Message: {e.Message}");
             }
