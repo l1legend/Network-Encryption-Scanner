@@ -1,6 +1,7 @@
 # Network Security Scanner
 
 A prototype software that scans an IP address, locates a specific file (for example: `password.txt`), and displays the contents of the file in the terminal or command line.
+You can use this software to search for a particular text file of interest. 
 
 > **Note**: This software is designed to be used on a local device; hence, only the IP address `127.0.0.1` can be utilized.
 
