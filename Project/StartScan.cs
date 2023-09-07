@@ -132,7 +132,7 @@ namespace NetworkSecurityScanner
                     string fileContent = await response.Content.ReadAsStringAsync();
                     if (!string.IsNullOrEmpty(fileContent))
                     {
-                        Console.WriteLine($"password.txt found at: {targetUrl}\nContent of password.txt:\n{fileContent}");
+                        Console.WriteLine($"{filename} found at: {targetUrl}\nContent of {filename}:\n{fileContent}");
                     }
                 }
             }

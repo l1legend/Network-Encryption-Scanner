@@ -1,19 +1,20 @@
-﻿namespace MyNamespace
+﻿using System;
+
+namespace MyNamespace
 {
     class Program
     {
-        static void Main()
+        static async Task Main(string[] args)
         {
             try
             {
-                NetworkSecurityScanner.Program.StartScan().GetAwaiter().GetResult();
+                await NetworkSecurityScanner.Scanner.StartScanAsync();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An unexpected error occurred: {ex.Message}");
-                Console.WriteLine(ex.StackTrace);  // This will print details of the error for debugging
+                Console.WriteLine(ex.StackTrace);
             }
-
         }
     }
 }
