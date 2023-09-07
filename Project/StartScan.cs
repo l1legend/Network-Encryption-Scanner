@@ -43,6 +43,14 @@ namespace NetworkSecurityScanner
             Console.WriteLine("Enter target IP address:");
             string targetIpAddress = Console.ReadLine();
 
+            if (string.IsNullOrWhiteSpace(targetIpAddress) || !System.Net.IPAddress.TryParse(targetIpAddress, out _))
+            {
+                Console.WriteLine("You didn't enter a valid IP address. Exiting...");
+                return;
+            }
+  
+
+
             if (!IsTargetReachable(targetIpAddress))
             {
                 Console.WriteLine($"Unable to connect to target IP: {targetIpAddress}. Exiting...");
