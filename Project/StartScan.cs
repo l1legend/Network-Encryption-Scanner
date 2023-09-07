@@ -1,34 +1,22 @@
 ﻿using System.Net.Sockets;
 using Assessment;
+using System.IO;
+using System.Net;
 
-
-// The NetworkSecurityScanner namespace contains logic 
-// to scan a network to identify and read specific files.
 namespace NetworkSecurityScanner
 {
-    class Program
+    internal class Program
     {
-        // HttpClient instance to make HTTP requests.
-        static readonly HttpClient client = new HttpClient();
+        private static readonly HttpClient client = new HttpClient();
 
-        // Checks if a specific IP address and port is reachable within a given timeout.
-        static bool IsTargetReachable(string ipAddress, int port = 80, int timeout = 5000)
+        private static bool IsTargetReachable(string ipAddress, int port = 80, int timeout = 5000)
         {
             using (var client = new TcpClient())
             {
                 try
                 {
                     var task = client.ConnectAsync(ipAddress, port);
-                    var result = Task.WhenAny(task, Task.Delay(timeout)).Result;
-
-                    if (result == task)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return Task.WhenAny(task, Task.Delay(timeout)).Result == task;
                 }
                 catch
                 {
@@ -37,19 +25,16 @@ namespace NetworkSecurityScanner
             }
         }
 
-        // Starts the scanning process.
         public static async Task StartScan()
         {
             Console.WriteLine("Enter target IP address:");
             string targetIpAddress = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(targetIpAddress) || !System.Net.IPAddress.TryParse(targetIpAddress, out _))
+            if (string.IsNullOrWhiteSpace(targetIpAddress) || !IPAddress.TryParse(targetIpAddress, out _))
             {
                 Console.WriteLine("You didn't enter a valid IP address. Exiting...");
                 return;
             }
-  
-
 
             if (!IsTargetReachable(targetIpAddress))
             {
@@ -57,11 +42,9 @@ namespace NetworkSecurityScanner
                 return;
             }
 
-            // Try making an HTTP request to check connectivity.
-            HttpResponseMessage rootResponse;
             try
             {
-                rootResponse = await client.GetAsync($"http://{targetIpAddress}/");
+                HttpResponseMessage rootResponse = await client.GetAsync($"http://{targetIpAddress}/");
                 if (!rootResponse.IsSuccessStatusCode)
                 {
                     Console.WriteLine($"Unable to get a positive HTTP response from target IP: {targetIpAddress}. Exiting...");
@@ -76,32 +59,65 @@ namespace NetworkSecurityScanner
 
             Console.WriteLine($"Successfully connected to {targetIpAddress}. Proceeding with scan...");
 
+            CheckLocalDirectories("password.txt");
             await CheckForFile("", targetIpAddress);
 
-            List<string> wordList = new Words().GetWordList(); //From Assessment Namespace
-
+            var wordList = new Words().GetWordList();
             var tasks = wordList.Select(path => CheckForFile(path, targetIpAddress)).ToArray();
-            await Task.WhenAll(tasks); // Wait for all checks to complete.
+            await Task.WhenAll(tasks);
 
             Console.WriteLine("Scan completed.");
         }
 
-        // Check if a specific file (password.txt) exists at a given path for a specific IP address.
-        static async Task CheckForFile(string path, string ipAddress)
+        private static void CheckLocalDirectories(string filename)
+        {
+            string desktopDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            try
+            {
+                SearchAndPrintFiles(desktopDirectory, filename);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error while checking local directories: {e.Message}");
+            }
+        }
+
+        private static void SearchAndPrintFiles(string directory, string filename)
+        {
+            try
+            {
+                foreach (var file in Directory.GetFiles(directory, filename))
+                {
+                    Console.WriteLine($"Found {filename} at {file}\nContent of {filename}:\n{File.ReadAllText(file)}");
+                }
+
+                foreach (var dir in Directory.GetDirectories(directory))
+                {
+                    SearchAndPrintFiles(dir, filename);
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                // No action needed. Simply skip directories that you don't have access to.
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error accessing {directory}: {e.Message}");
+            }
+        }
+
+        private static async Task CheckForFile(string path, string ipAddress)
         {
             string targetUrl = $"http://{ipAddress}{path}/password.txt";
-
             try
             {
                 HttpResponseMessage response = await client.GetAsync(targetUrl);
-
                 if (response.IsSuccessStatusCode)
                 {
                     string fileContent = await response.Content.ReadAsStringAsync();
                     if (!string.IsNullOrEmpty(fileContent))
                     {
-                        Console.WriteLine($"password.txt found at: {targetUrl}");
-                        Console.WriteLine($"Content of password.txt:\n{fileContent}");
+                        Console.WriteLine($"password.txt found at: {targetUrl}\nContent of password.txt:\n{fileContent}");
                     }
                 }
             }
