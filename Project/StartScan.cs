@@ -73,7 +73,7 @@ namespace NetworkSecurityScanner
             CheckLocalDirectories(filename);
 
             // Then check the remote server
-            //await CheckForFile("", targetIpAddress, filename);
+            await CheckForFile("", targetIpAddress, filename);
 
             // Create an instance of the Words class
             IWordsProvider wordProvider = new Words();
