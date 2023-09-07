@@ -68,18 +68,18 @@ namespace NetworkSecurityScanner
 
             Console.WriteLine($"Successfully connected to {targetIpAddress}. Proceeding with scan...");
 
-            await CheckForFlagFile("", targetIpAddress);
+            await CheckForFile("", targetIpAddress);
 
             List<string> wordList = new Words().GetWordList(); //From Assessment Namespace
 
-            var tasks = wordList.Select(path => CheckForFlagFile(path, targetIpAddress)).ToArray();
+            var tasks = wordList.Select(path => CheckForFile(path, targetIpAddress)).ToArray();
             await Task.WhenAll(tasks); // Wait for all checks to complete.
 
             Console.WriteLine("Scan completed.");
         }
 
         // Check if a specific file (password.txt) exists at a given path for a specific IP address.
-        static async Task CheckForFlagFile(string path, string ipAddress)
+        static async Task CheckForFile(string path, string ipAddress)
         {
             string targetUrl = $"http://{ipAddress}{path}/password.txt";
 
