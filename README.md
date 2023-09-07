@@ -22,15 +22,11 @@ Follow the steps below:
 6. Start a local server on port 80 with the command: `python -m http.server 80`
 7. Leave this terminal window open. This step simulates a "remote" server (though it's actually a local server).
    
-![Local Server Setup](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/18fc752c-c6bd-4d42-a8c1-69cac47af420)
-
 ### Running the Scanner (Windows)
 The current build utilizes a `windows.dll`. Follow these steps to run the scanner:
 1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `release`. The `NetworkScanner` executable is located here.
 2. To execute this program, open a terminal or command prompt, navigate to the location of the executable, and enter the command: `NetworkScanner`.
 3. Input the IP address. If the server and file are set up correctly, you'll establish a successful connection, and the content of the file will be displayed.
-
-![Scanner in Action](https://github.com/l1legend/Network-Server-Scanner/assets/28288764/65892a27-efbe-4fc8-a219-51a4d883e1d1)
 
 ## Modifying the Software for Different Operating Systems
 
