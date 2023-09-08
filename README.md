@@ -23,13 +23,13 @@ Follow the steps below:
 7. Leave this terminal window open. This step simulates a "remote" server (though it's actually a local server).
    
 ### Running the Scanner (Windows)
-1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `debug`. The `NetworkScanner.exe` executable is located here.
-2. To run the program, doubleclick `NetworkScanner.exe`
-3. Alternatively you can open a terminal or command prompt, navigate to the location of the program, and enter the command: `NetworkScanner`.
-4. Input the IP address. If the server and file are set up correctly, you'll establish a successful connection.
-5. Input the name of the file. Assuming the file is located in the same directory where you setup your test server, the content of the file will be displayed.
-6. If desired you have the option the encryption file. Select 'yes' or 'no'.
-7. If 'yes' is selection, enter password (minimum of 8 characters).
-8. The file will become a zip file. 
+1. Navigate to the directory Network-Server-Scanner, followed by the subsequent path: Project > bin > debug. Within this location, you'll find the executable NetworkScanner.exe.
+2. Initiate the program by double-clicking on NetworkScanner.exe.
+3. As an alternative, launch a terminal or command prompt. Navigate to the directory where the program resides and execute the command: NetworkScanner.
+4. Provide the requisite IP address. A successful connection will be established if the server and file configurations are accurate.
+5. Enter the filename. Assuming the file is situated in the directory where the test server was configured, the file contents will be rendered.
+6. Should you wish, there's an option to encrypt the file. Make a selection between 'yes' or 'no'.
+7. If 'yes' is chosen, input a password comprising a minimum of 8 characters.
+8. Subsequently, the file will be compressed into a zip format.
 
 
