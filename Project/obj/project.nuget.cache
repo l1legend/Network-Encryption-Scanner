@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hVTpHczU0vH2/4rJUUB2oTrImLXQ0yvUgtoK/6/cCSfE8/pExy3c3nDRNhqwxCfmtk1cDThAynBkKqsSr7mHFA==",
+  "dgSpecHash": "LYfTUs7O951N65JcCtm694X3+3olcWek1/TqjeKpxXEJQbQPqmLTHdVQabHvNYTAuPtEzlyXva9Ewx8CHcKvjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\mintw\\OneDrive\\Documents\\GitHub\\Network-Security-Scanner\\Project\\NetworkScanner.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mintw\\.nuget\\packages\\sharpziplib\\1.4.2\\sharpziplib.1.4.2.nupkg.sha512"
+  ],
   "logs": []
 }

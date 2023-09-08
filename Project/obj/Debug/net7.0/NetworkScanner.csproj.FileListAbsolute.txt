@@ -49,3 +49,4 @@ C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\obj\De
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\obj\Debug\net7.0\NetworkScanner.pdb
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\obj\Debug\net7.0\NetworkScanner.genruntimeconfig.cache
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\obj\Debug\net7.0\ref\NetworkScanner.dll
+C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\bin\Debug\net7.0\ICSharpCode.SharpZipLib.dll

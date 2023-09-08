@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
+using ICSharpCode.SharpZipLib.Zip;
 
 namespace NetworkScanner
 {
@@ -74,37 +75,34 @@ namespace NetworkScanner
         {
             try
             {
-                byte[] salt = new byte[8];
-                new RNGCryptoServiceProvider().GetBytes(salt); // Random salt for key derivation
-                Rfc2898DeriveBytes derivedKey = new Rfc2898DeriveBytes(passphrase, salt, 1000);
-                byte[] key = derivedKey.GetBytes(32); // Derived 256-bit key
-
-                byte[] iv = new byte[16]; // 128 bits IV (AES block size)
-
-                byte[] encrypted;
-
-                using (Aes aesAlg = Aes.Create())
+                using (FileStream fs = new FileStream(filePath + ".zip", FileMode.Create, FileAccess.Write))
+                using (ZipOutputStream zipStream = new ZipOutputStream(fs))
                 {
-                    aesAlg.Key = key;
-                    aesAlg.IV = iv;
+                    zipStream.SetLevel(3); // 0-9, 9 being the highest compression
+                    zipStream.Password = passphrase;  // Optional. Password is not set on stream
 
-                    ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+                    byte[] buffer = new byte[4096];
 
-                    using (MemoryStream msEncrypt = new MemoryStream())
+                    ZipEntry entry = new ZipEntry(Path.GetFileName(filePath));
+                    zipStream.PutNextEntry(entry);
+
+                    using (FileStream fsRead = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                     {
-                        using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                        int sourceBytes;
+                        do
                         {
-                            using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                            {
-                                swEncrypt.Write(File.ReadAllText(filePath));
-                            }
-                        }
-                        encrypted = msEncrypt.ToArray();
+                            sourceBytes = fsRead.Read(buffer, 0, buffer.Length);
+                            zipStream.Write(buffer, 0, sourceBytes);
+                        } while (sourceBytes > 0);
                     }
-                }
 
-                File.WriteAllBytes(filePath, encrypted);
-                Console.WriteLine($"{filePath} has been encrypted successfully.");
+                    zipStream.Finish();
+                    zipStream.Close();
+
+                    File.Delete(filePath);  // Delete the original file after creating the encrypted zip
+
+                    Console.WriteLine($"{filePath} has been encrypted and zipped successfully.");
+                }
             }
             catch (Exception e)
             {
