@@ -38,19 +38,33 @@ namespace NetworkScanner
                     Console.WriteLine($"Content of {filename}:");
                     Console.WriteLine(File.ReadAllText(file));
 
-                    Console.WriteLine("Do you want to encrypt this file? (yes/no)");
-                    var userResponse = Console.ReadLine();
-                    if (userResponse?.ToLower() == "yes")
+                    bool validResponse = false;
+                    while (!validResponse)
                     {
-                        Console.WriteLine("Enter an encryption passphrase (minimum 8 characters):");
-                        var passphrase = Console.ReadLine();
-                        if (!string.IsNullOrEmpty(passphrase) && passphrase.Length >= 8)
+                        Console.WriteLine("Do you want to encrypt this file? (yes/no)");
+                        var userResponse = Console.ReadLine()?.ToLower();
+
+                        if (userResponse == "yes")
                         {
-                            EncryptFile(file, passphrase);
+                            Console.WriteLine("Enter an encryption passphrase (minimum 8 characters):");
+                            var passphrase = Console.ReadLine();
+                            if (!string.IsNullOrEmpty(passphrase) && passphrase.Length >= 8)
+                            {
+                                EncryptFile(file, passphrase);
+                                validResponse = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid passphrase. Passphrase must be at least 8 characters long.");
+                            }
+                        }
+                        else if (userResponse == "no")
+                        {
+                            validResponse = true;
                         }
                         else
                         {
-                            Console.WriteLine("Invalid passphrase. File was not encrypted.");
+                            Console.WriteLine("Invalid input. Please enter 'yes' or 'no'.");
                         }
                     }
                 }
