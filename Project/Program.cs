@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using NetworkScanner;
 
-namespace MyNamespace
+namespace NetworkScannerApp
 {
     class Program
     {
@@ -8,7 +10,7 @@ namespace MyNamespace
         {
             try
             {
-                await NetworkSecurityScanner.Scanner.StartScanAsync();
+                await SecurityScanner.StartScanAsync();
             }
             catch (Exception ex)
             {

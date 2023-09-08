@@ -1,20 +1,35 @@
 ﻿using System;
 using System.IO;
 
-namespace NetworkSecurityScanner
+namespace NetworkScanner
 {
     internal static class LocalDirectoryScanner
     {
+        /// <summary>
+        /// Initiates the local directory scan starting from the user's profile directory.
+        /// </summary>
+        /// <param name="filename">Name of the file to search for.</param>
         public static void CheckLocalDirectories(string filename)
         {
-            string desktopDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            SearchAndPrintFiles(desktopDirectory, filename);
+            string userProfileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            SearchAndPrintFiles(userProfileDirectory, filename);
         }
 
+        /// <summary>
+        /// Recursively searches for a given filename in a directory and prints its content.
+        /// </summary>
+        /// <param name="directory">Directory to search in.</param>
+        /// <param name="filename">Name of the file to search for.</param>
         private static void SearchAndPrintFiles(string directory, string filename)
         {
+            if (string.IsNullOrEmpty(directory) || string.IsNullOrEmpty(filename))
+            {
+                return;
+            }
+
             try
             {
+                // Print files that match the filename in the current directory
                 foreach (var file in Directory.GetFiles(directory, filename))
                 {
                     Console.WriteLine($"Found {filename} at {file}");
@@ -30,7 +45,6 @@ namespace NetworkSecurityScanner
             }
             catch (UnauthorizedAccessException)
             {
-                // We don't have access to this directory, log a message and skip it.
                 Console.WriteLine($"Access denied to directory: {directory}. Skipping...");
             }
             catch (Exception e)
