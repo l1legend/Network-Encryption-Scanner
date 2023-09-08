@@ -1,9 +1,5 @@
-﻿using System;
-using System.Net.Sockets;
-using System.Net.Http;
+﻿using System.Net.Sockets;
 using System.Net;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Assessment;
 
 namespace NetworkScanner
