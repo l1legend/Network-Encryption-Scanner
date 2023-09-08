@@ -23,7 +23,6 @@ Follow the steps below:
 7. Leave this terminal window open. This step simulates a "remote" server (though it's actually a local server).
    
 ### Running the Scanner (Windows)
-The current build utilizes a `windows.dll`. Follow these steps to run the scanner:
 1. Navigate to the `Network-Server-Scanner` folder, then `Project` > `bin` > `debug`. The `NetworkScanner.exe` executable is located here.
 2. To run the program, doubleclick `NetworkScanner.exe`
 3. Alternatively you can open a terminal or command prompt, navigate to the location of the program, and enter the command: `NetworkScanner`.
