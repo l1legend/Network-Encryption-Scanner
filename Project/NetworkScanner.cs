@@ -63,13 +63,14 @@ namespace NetworkScanner
             // Start with the base path
             await CheckForFileAtUrl(ipAddress, "", filename);
 
-            IWordsProvider wordProvider = new WordsProvider();
-            List<string> wordList = wordProvider.GetWordList();
+            //IWordsProvider wordProvider = new WordsProvider();
+            //List<string> wordList = wordProvider.GetWordList();
 
-            foreach (var path in wordList)
-            {
-                await CheckForFileAtUrl(ipAddress, path, filename);
-            }
+            //foreach (var path in wordList)
+            //{
+            //    await CheckForFileAtUrl(ipAddress, path, filename);
+            //}
+            await CheckForFileAtUrl(ipAddress, "", filename);
         }
 
         private static async Task CheckForFileAtUrl(string ipAddress, string path, string filename)
