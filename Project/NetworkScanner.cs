@@ -1,5 +1,7 @@
-﻿using System.Net.Sockets;
-using System.Net;
+﻿using System.Net;
+using System.Net.Sockets;
+
+
 namespace NetworkScanner
 {
     internal class SecurityScanner
@@ -8,8 +10,12 @@ namespace NetworkScanner
 
         public static async Task StartScanAsync()
         {
-            string targetIpAddress = PromptForIPAddress();
-            if (targetIpAddress == null) return;
+            string? targetIpAddress = PromptForIPAddress();
+            if (string.IsNullOrEmpty(targetIpAddress))
+            {
+                Console.WriteLine("Invalid IP address entered. Exiting...");
+                return;
+            }
 
             if (!IsTargetReachable(targetIpAddress))
             {
@@ -17,27 +23,30 @@ namespace NetworkScanner
                 return;
             }
 
-            string filename = PromptForFilename();
-            if (filename == null) return;
+            string? filename = PromptForFilename();
+            if (string.IsNullOrEmpty(filename))
+            {
+                Console.WriteLine("Invalid filename entered. Exiting...");
+                return;
+            }
 
-            // Check the local directories (Not provided in the original code, assuming it's somewhere in your project)
+            // Assuming LocalDirectoryScanner.CheckLocalDirectories(filename) exists elsewhere in your project
             LocalDirectoryScanner.CheckLocalDirectories(filename);
 
             await CheckForFileAtUrl(targetIpAddress, "", filename);
         }
 
-        private static string PromptForIPAddress()
+        private static string? PromptForIPAddress()
         {
             Console.WriteLine("Enter target IP address:");
-            string ipAddress = Console.ReadLine();
+            string? ipAddress = Console.ReadLine();
             return IPAddress.TryParse(ipAddress, out _) ? ipAddress : null;
         }
 
-        private static string PromptForFilename()
+        private static string? PromptForFilename()
         {
             Console.WriteLine("Enter the name of the file (including its .extension) to scan for:");
-            string filename = Console.ReadLine();
-            return filename.Contains(".") ? filename : null;
+            return Console.ReadLine();
         }
 
         private static bool IsTargetReachable(string ipAddress, int port = 80, int timeout = 5000)
