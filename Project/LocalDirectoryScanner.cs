@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Security.Cryptography;
-using ICSharpCode.SharpZipLib.Zip;
+﻿using NetworkScanner;
 
 namespace NetworkScanner
 {
@@ -50,7 +47,7 @@ namespace NetworkScanner
                             var passphrase = Console.ReadLine();
                             if (!string.IsNullOrEmpty(passphrase) && passphrase.Length >= 8)
                             {
-                                EncryptFile(file, passphrase);
+                                FileEncrypter.EncryptFile(file, passphrase);
                                 validResponse = true;
                             }
                             else
@@ -82,45 +79,6 @@ namespace NetworkScanner
             catch (Exception e)
             {
                 Console.WriteLine($"Error accessing {directory}: {e.Message}");
-            }
-        }
-
-        private static void EncryptFile(string filePath, string passphrase)
-        {
-            try
-            {
-                using (FileStream fs = new FileStream(filePath + ".zip", FileMode.Create, FileAccess.Write))
-                using (ZipOutputStream zipStream = new ZipOutputStream(fs))
-                {
-                    zipStream.SetLevel(3); // 0-9, 9 being the highest compression
-                    zipStream.Password = passphrase;  // Optional. Password is not set on stream
-
-                    byte[] buffer = new byte[4096];
-
-                    ZipEntry entry = new ZipEntry(Path.GetFileName(filePath));
-                    zipStream.PutNextEntry(entry);
-
-                    using (FileStream fsRead = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-                    {
-                        int sourceBytes;
-                        do
-                        {
-                            sourceBytes = fsRead.Read(buffer, 0, buffer.Length);
-                            zipStream.Write(buffer, 0, sourceBytes);
-                        } while (sourceBytes > 0);
-                    }
-
-                    zipStream.Finish();
-                    zipStream.Close();
-
-                    File.Delete(filePath);  // Delete the original file after creating the encrypted zip
-
-                    Console.WriteLine($"{filePath} has been encrypted and zipped successfully.");
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error encrypting {filePath}. Message: {e.Message}");
             }
         }
     }
