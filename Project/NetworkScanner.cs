@@ -1,6 +1,5 @@
 ﻿using System.Net.Sockets;
 using System.Net;
-
 namespace NetworkScanner
 {
     internal class SecurityScanner
@@ -24,7 +23,7 @@ namespace NetworkScanner
             // Check the local directories (Not provided in the original code, assuming it's somewhere in your project)
             LocalDirectoryScanner.CheckLocalDirectories(filename);
 
-            await CheckRemoteServerForFile(targetIpAddress, filename);
+            await CheckForFileAtUrl(targetIpAddress, "", filename);
         }
 
         private static string PromptForIPAddress()
@@ -55,12 +54,6 @@ namespace NetworkScanner
                     return false;
                 }
             }
-        }
-
-        private static async Task CheckRemoteServerForFile(string ipAddress, string filename)
-        {
-            // Start with the base path
-            await CheckForFileAtUrl(ipAddress, "", filename);
         }
 
         private static async Task CheckForFileAtUrl(string ipAddress, string path, string filename)
