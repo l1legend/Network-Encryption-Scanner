@@ -37,7 +37,6 @@ C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\bin\De
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\bin\Debug\net7.0\NetworkScanner.runtimeconfig.json
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\bin\Debug\net7.0\NetworkScanner.dll
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\bin\Debug\net7.0\NetworkScanner.pdb
-C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\bin\Debug\net7.0\Assessment.dll
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\obj\Debug\net7.0\NetworkScanner.csproj.AssemblyReference.cache
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\obj\Debug\net7.0\NetworkScanner.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mintw\OneDrive\Documents\GitHub\Network-Security-Scanner\Project\obj\Debug\net7.0\NetworkScanner.AssemblyInfoInputs.cache

@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "NetworkScanner/1.0.0": {
         "dependencies": {
-          "SharpZipLib": "1.4.2",
-          "Assessment": "1.0.0.0"
+          "SharpZipLib": "1.4.2"
         },
         "runtime": {
           "NetworkScanner.dll": {}
@@ -20,14 +19,6 @@
           "lib/net6.0/ICSharpCode.SharpZipLib.dll": {
             "assemblyVersion": "1.4.2.13",
             "fileVersion": "1.4.2.13"
-          }
-        }
-      },
-      "Assessment/1.0.0.0": {
-        "runtime": {
-          "Assessment.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
           }
         }
       }
@@ -45,11 +36,6 @@
       "sha512": "sha512-yjj+3zgz8zgXpiiC3ZdF/iyTBbz2fFvMxZFEBPUcwZjIvXOf37Ylm+K58hqMfIBt5JgU/Z2uoUS67JmTLe973A==",
       "path": "sharpziplib/1.4.2",
       "hashPath": "sharpziplib.1.4.2.nupkg.sha512"
-    },
-    "Assessment/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

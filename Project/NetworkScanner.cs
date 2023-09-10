@@ -1,6 +1,5 @@
 ﻿using System.Net.Sockets;
 using System.Net;
-using Assessment;
 
 namespace NetworkScanner
 {
@@ -61,15 +60,6 @@ namespace NetworkScanner
         private static async Task CheckRemoteServerForFile(string ipAddress, string filename)
         {
             // Start with the base path
-            await CheckForFileAtUrl(ipAddress, "", filename);
-
-            //IWordsProvider wordProvider = new WordsProvider();
-            //List<string> wordList = wordProvider.GetWordList();
-
-            //foreach (var path in wordList)
-            //{
-            //    await CheckForFileAtUrl(ipAddress, path, filename);
-            //}
             await CheckForFileAtUrl(ipAddress, "", filename);
         }
 
