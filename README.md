@@ -15,7 +15,7 @@ Follow the steps below:
 
 ### Setting up a Local Test Server
 1. Create a file on your desktop named "TestServer". (You can place this file in any directory, and the scanner should still locate the file.)
-2. Within this folder, open a text editor (like Notepad) and create a file named "flag". Save it as `password.txt`.
+2. Within this folder, open a text editor (like Notepad) and save it as `password.txt`.
 3. Add any text to `password.txt` and save.
 4. Open a terminal or command prompt and navigate to the `testserver` directory.
 5. Use the `dir` (or `ls` on Linux/Mac) command. You should see the `password.text` file listed.
@@ -26,7 +26,7 @@ Follow the steps below:
 1. Navigate to the directory Network-Server-Scanner, followed by the subsequent path: Project > bin > debug. Within this location, you'll find the executable NetworkScanner.exe.
 2. Initiate the program by double-clicking on NetworkScanner.exe.
 3. As an alternative, launch a terminal or command prompt. Navigate to the directory where the program resides and execute the command: NetworkScanner.
-4. Provide the requisite IP address. A successful connection will be established if the server and file configurations are accurate.
+4. Provide the requisite IP address (127.0.0.1). A successful connection will be established if the server and file configurations are accurate.
 5. Enter the filename. Assuming the file is situated in the directory where the test server was configured, the file contents will be rendered.
 6. Should you wish, there's an option to encrypt the file. Make a selection between 'yes' or 'no'.
 7. If 'yes' is chosen, input a password comprising a minimum of 8 characters.
